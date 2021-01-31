@@ -25,29 +25,47 @@ humans = [
 # whose name starts with 'D':
 print("Starts with D:")
 a = []
+for Human in humans:
+    if (Human.name[0] == 'D'):
+        a.append(Human.name)
 print(a)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 print("Ends with e:")
 b = []
+for Human in humans:
+    if (Human.name[-1] == 'e'):
+        b.append(Human.name)
 print(b)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
 print("Starts between C and G, inclusive:")
+def char_range(a1, a2):
+    for a in range(ord(a1), ord(a2)+1):
+        yield chr(a)
+    
 c = []
+for Human in humans:
+    for a in char_range('C', 'G'):
+        if (Human.name[0] == a):
+            c.append(Human.name)
 print(c)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
 print("Ages plus 10:")
 d = []
+for Human in humans:
+    d.append(Human.age + 10)
 print(d)
 
 # Write a list comprehension that creates a list of strings which are the name
 # joined to the age with a hyphen, for example "David-31", for all humans.
 print("Name hyphen age:")
 e = []
+for Human in humans:
+    e.append(Human.name + '-' + str(Human.age))
 print(e)
 
 # Write a list comprehension that creates a list of tuples containing name and
@@ -68,4 +86,6 @@ print(g)
 print("Square root of ages:")
 import math
 h = []
+for Human in humans:
+    h.append(math.sqrt(Human.age))
 print(h)
